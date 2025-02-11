@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechStore</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgba(237, 239, 239, 0.54);
+      }
+
+      /* 헤더 - 테크스토어, nav */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 10px 10px -10px rgba(33, 35, 38, 0.345);
+        background-color: white;
+      }
+      #techstore {
+        color: rgb(13, 96, 251);
+        font-weight: 900;
+        font-size: 22px;
+        padding: 15px 15px;
+      }
+
+      /* nav */
+      .nav {
+        padding: 0;
+      }
+
+      .nav-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      /* 제품, 서비스, 회사소개 스타일 */
+      .nav-item {
+        position: relative;
+      }
+      .nav-item > a {
+        display: block;
+        padding: 15px 20px;
+        color: rgb(100, 100, 100);
+        text-decoration: none;
+      }
+      .nav-item > a:hover {
+        color: rgb(13, 96, 251);
+      }
+      /* 드롭다운 표시 */
+      .nav-item:hover .dropdown {
+        display: block;
+      }
+
+      /* 드롭다운 메뉴 */
+      .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: none;
+        z-index: 1000;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+          rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+      }
+      .dropdown li {
+        width: 170px;
+      }
+      .dropdown a {
+        display: block;
+        padding: 10px 15px;
+        color: rgb(100, 100, 100);
+        text-decoration: none;
+        font-size: 14px;
+        background-color: white;
+      }
+      .dropdown a:hover {
+        background-color: #eef8ff;
+      }
+
+      /* main */
+      .main {
+        width: 100%;
+        height: 100%;
+      }
+      /*    -aside */
+      .aside > p {
+        padding: 25px 15px;
+        font-weight: bold;
+        font-size: 27px;
+      }
+      /*    -section */
+      .section {
+        display: flex;
+        padding: 0 15px;
+        gap: 35px;
+      }
+      .product {
+        padding: 20px;
+        width: 480px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+          rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+      }
+      .pHeader {
+        display: flex;
+        justify-content: space-between;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .pCost {
+        color: rgb(13, 96, 251);
+      }
+      .explain {
+        color: rgb(100, 100, 100);
+        font-size: 14px;
+      }
+      .button {
+        display: flex;
+        justify-content: space-between;
+      }
+      button {
+        border: none;
+      }
+      .category {
+        align-self: center;
+        background-color: #eef8ff;
+        width: 80px;
+        height: 25px;
+        border-radius: 10px;
+      }
+      .category > p {
+        color: rgb(13, 96, 251);
+      }
+      .addCart {
+        background-color: rgb(13, 96, 251);
+        width: 130px;
+        height: 35px;
+        border-radius: 5px;
+      }
+      .addCart > p {
+        color: white;
+      }
+
+      #dummy {
+        display: none;
+      }
+
+      /* Tablet */
+      @media screen and (min-width: 768px) and (max-width: 959px) {
+        .section {
+          flex-wrap: wrap;
+        }
+        #laptop {
+          flex: 1 40%;
+        }
+        #headphone {
+          flex: 1 40%;
+        }
+        #watch {
+          flex: 1 40%;
+        }
+        #dummy {
+          display: block;
+          flex: 1 40%;
+        }
+      }
+      /* Mobile */
+      @media screen and (max-width: 767px) {
+        .nav {
+          flex: 1 0%;
+          visibility: hidden;
+        }
+        .section {
+          flex-wrap: wrap;
+        }
+        #laptop {
+          flex: 1 100%;
+        }
+        #headphone {
+          flex: 1 100%;
+        }
+        #watch {
+          flex: 1 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="header">
+        <div id="techstore">TechStore</div>
+        <nav class="nav">
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="#">제품</a>
+              <ul class="dropdown">
+                <li><a href="#">전자기기</a></li>
+                <li><a href="#">의류</a></li>
+                <li><a href="#">도서</a></li>
+                <li><a href="#">액세서리</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#">서비스</a>
+              <ul class="dropdown">
+                <li><a href="#">컨설팅</a></li>
+                <li><a href="#">교육</a></li>
+                <li><a href="#">고객지원</a></li>
+                <li><a href="#">유지보수</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#">회사소개</a>
+              <ul class="dropdown d3">
+                <li><a href="#">회사정보</a></li>
+                <li><a href="#">팀 소개</a></li>
+                <li><a href="#">채용정보</a></li>
+                <li><a href="#">연락처</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="main">
+        <div class="aside"><p>추천 제품</p></div>
+        <div class="section">
+          <div class="product" id="laptop">
+            <div class="pHeader">
+              <span class="pName">프리미엄 노트북</span>
+              <span class="pCost">1,599,000원</span>
+            </div>
+            <div class="explain">최신 사양의 고성능 노트북</div>
+            <div class="button">
+              <button type="button" class="category"><p>전자기기</p></button>
+              <button type="button" class="addCart">
+                <p>장바구니 담기</p>
+              </button>
+            </div>
+          </div>
+          <div class="product" id="headphone">
+            <div class="pHeader">
+              <span class="pName">무선 헤드폰</span>
+              <span class="pCost">299,000원</span>
+            </div>
+            <div class="explain">프리미엄 사운드의 노이즈 캔슬링 헤드폰</div>
+            <div class="button">
+              <button type="button" class="category"><p>전자기기</p></button>
+              <button type="button" class="addCart">
+                <p>장바구니 담기</p>
+              </button>
+            </div>
+          </div>
+          <div class="product" id="watch">
+            <div class="pHeader">
+              <span class="pName">스마트 워치</span>
+              <span class="pCost">399,000원</span>
+            </div>
+            <div class="explain">피트니스 트래킹과 스마트 연결 기능</div>
+            <div class="button">
+              <button type="button" class="category"><p>액세서리</p></button>
+              <button type="button" class="addCart">
+                <p>장바구니 담기</p>
+              </button>
+            </div>
+          </div>
+          <div id="dummy"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
