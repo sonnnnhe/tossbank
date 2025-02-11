@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb48</title>
+    <script>
+      let string = prompt("문자열을 입력하세요.");
+      let tmp = "";
+      for (let i = 0; i < string.length; i++) {
+        if (string[i] == string[i].toUpperCase()) {
+          tmp += string[i].toLowerCase();
+        } else {
+          tmp += string[i].toUpperCase();
+        }
+      }
+      console.log(tmp);
+    </script>
+  </head>
+  <body></body>
+</html>

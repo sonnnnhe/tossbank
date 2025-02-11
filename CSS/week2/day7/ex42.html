@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- float보다 flex 쓰는 게 더 좋음 -->
+    <!-- 왜? flex는 컬럼의 높이를 자동으로 맞춰줌 -->
+    <title>레이아웃 배치를 자유롭게 - display:flex</title>
+    <!-- flexbox, flexable box -->
+    <!-- IE11부터 지원 -->
+    <!-- flex 설명 블로그 -->
+    <!-- https://studiomeal.com/archives/197 -->
+
+    <!-- flex-basis로 설정한 크기가 원래 크기보다 작으면 변하지 않는다 -->
+    <!-- flex-basis보다 width의 우선순위가 더 높음 -->
+    <style>
+      .container {
+        background-color: #eee;
+        border: 1px solid #222;
+        margin-bottom: 10px;
+        /* 컨테이너를 flexbox로 변경 -> inline 요소로 바뀜 */
+        display: flex;
+      }
+      .box {
+        /* width: 80px;  */ /* 기본값이 stretch */
+        background-color: green;
+        margin: 5px;
+        padding: 5px 45px;
+      }
+      p {
+        color: white;
+        text-align: center;
+      }
+      .opt1 {
+        /* 주축방향: 왼쪽 -> 오른쪽 */
+        flex-direction: row;
+      }
+      .opt2 {
+        /* 주축방향: 오른쪽 -> 왼쪽 */
+        flex-direction: row-reverse;
+      }
+      .opt3 {
+        flex-direction: column;
+      }
+      .opt4 {
+        flex-direction: column-reverse;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container opt1">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+    </div>
+    <div class="container opt2">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+    </div>
+    <div class="container opt3">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+    </div>
+    <div class="container opt4">
+      <div class="box"><p>1</p></div>
+      <div class="box"><p>2</p></div>
+      <div class="box"><p>3</p></div>
+    </div>
+  </body>
+</html>

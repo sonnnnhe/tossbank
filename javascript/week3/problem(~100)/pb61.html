@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb61-문자열 압축하기</title>
+    <script>
+      let str = prompt("문자열을 입력하세요.");
+      let cnt = 0;
+      let rst = "";
+      for (let i = 0; i < str.length; i++) {
+        if (i === str.length - 1) {
+          rst += str[i] + (cnt + 1);
+          break;
+        }
+        if (str[i] === str[i + 1]) {
+          cnt++;
+        } else {
+          rst += str[i] + (cnt + 1);
+          cnt = 0;
+        }
+      }
+      console.log(rst);
+    </script>
+  </head>
+  <body></body>
+</html>

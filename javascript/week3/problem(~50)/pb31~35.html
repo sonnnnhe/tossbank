@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb31~35</title>
+    <script>
+      // Q31.
+      let nums = prompt("여러개의 숫자를 입력하세요.").split(" ").reverse();
+      let rst = "";
+      for (let i = 0; i < nums.length; i++) {
+        rst += nums[i] + " ";
+      }
+      console.log(rst);
+
+      //Q32.
+      let heights = prompt("반 친구들의 키를 입력하세요.").split(" ");
+      let origin = [...heights];
+      let sorted = heights.sort();
+      let isSame = false;
+      for (let i = 0; i < origin.length; i++) {
+        if (origin[i] == sorted[i]) {
+          isSame = true;
+        } else {
+          isSame = false;
+          break;
+        }
+      }
+      if (isSame) {
+        console.log("YES");
+      } else {
+        console.log("NO");
+      }
+
+      // Q33.
+      function one(n) {
+        function two(value) {
+          let rst = Math.pow(value, n);
+          return rst;
+        }
+        return two;
+      }
+
+      const a = one(2);
+      const b = one(3);
+      const c = one(4);
+
+      console.log(a(10));
+      console.log(b(10));
+      console.log(c(10));
+
+      // Q34.
+      let num = Number(prompt("1~9까지의 숫자 중 하나를 입력하세요."));
+      let rst2 = "";
+      for (let i = 1; i <= 9; i++) {
+        rst2 += num * i + " ";
+      }
+      console.log(rst2);
+
+      // Q35.
+      let names = prompt("뽑힌 후보를 입력하세요.").split(" ");
+      let obj = {};
+      for (let i = 0; i < names.length; i++) {
+        if (obj[names[i]] == undefined) {
+          obj[names[i]] = 1;
+        } else {
+          obj[names[i]]++;
+        }
+      }
+      let keys = Object.keys(obj);
+      let values = Object.values(obj);
+      let maxV = 0;
+      let maxK, maxIdx;
+      for (let i = 0; i < values.length; i++) {
+        if (maxV < values[i]) {
+          maxIdx = i;
+          maxK = keys[i];
+          maxV = values[i];
+        }
+      }
+      console.log(`${maxK}(이)가 총 ${maxV}표로 반장이 되었습니다.`);
+    </script>
+  </head>
+  <body></body>
+</html>

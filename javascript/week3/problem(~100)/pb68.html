@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb68-버스 시간표</title>
+    <script>
+      let schedule = [];
+      while (true) {
+        let t = prompt("버스 시간표를 입력하세요.");
+        schedule.push(t);
+        if (t === "quit") {
+          break;
+        }
+      }
+      let cur = prompt("현재 시간을 입력하세요.");
+
+      let rst = [];
+      for (let item of schedule) {
+        let hour = Number(item.slice(0, 2));
+        let minute = Number(item.slice(3));
+        let curH = Number(cur.slice(0, 2));
+        let curM = Number(cur.slice(3));
+
+        if (curH > hour || (curH === hour && curM > minute)) {
+          rst.push("지나갔습니다");
+        } else if (curH < hour || (curH === hour && curM <= minute)) {
+          let fin = "";
+          let mH = hour - curH;
+          let mM;
+          if (curM <= minute) {
+            mM = minute - curM;
+          } else {
+            mM = 60 - curM + minute;
+            mH -= 1;
+          }
+
+          let fH = String(mH).padStart(2, "0");
+          let fM = String(mM).padStart(2, "0");
+          fin += fH + "시간 " + fM + "분";
+          rst.push(fin);
+        }
+      }
+      console.log(rst);
+    </script>
+  </head>
+  <body></body>
+</html>

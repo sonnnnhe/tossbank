@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb37~pb40</title>
+    <script>
+      // Q37.
+      let string = prompt("문장을 입력하세요.");
+      let replaced = string.replaceAll("q", "e");
+      console.log(replaced);
+
+      // Q38.
+      let max = Number(prompt("제한 무게를 입력하세요."));
+      let n = Number(prompt("친구들의 수를 입력하세요."));
+      let tot = 0;
+      let rst;
+      for (let i = 0; i < n; i++) {
+        let weight = Number(prompt("각 친구들의 무게를 입력하세요."));
+        tot += weight;
+        if (tot <= max) {
+          rst = i + 1;
+        }
+      }
+      console.log(rst);
+
+      // Q39.
+      let s = 0;
+      for (let i = 1; i <= 100; i++) {
+        s += i;
+      }
+      console.log(s);
+
+      // Q40.
+      var names = ["장미", "수선화", "코스모스"];
+      names.forEach((value) => {
+        console.log(value);
+      });
+      let maxL = 0;
+      let idx = 0;
+      let maxIdx;
+      names.forEach((value) => {
+        if (maxL < value.length) {
+          maxL = value.length;
+          maxIdx = idx;
+        }
+        idx++;
+      });
+      console.log(`가장 긴 단어는 ${names[maxIdx]}입니다.`);
+    </script>
+  </head>
+  <body></body>
+</html>

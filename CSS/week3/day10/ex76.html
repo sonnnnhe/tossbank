@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emmet 문법</title>
+  </head>
+  <body>
+    <!-- 기본 요소 생성 -->
+    <!-- : 태그이름 + tab or enter -->
+    <!-- div+enter/tab, p+enter/tab -->
+    <div></div>
+    <p></p>
+    <!-- 자식 요소 (>) -->
+    <!-- : div>ul>li*3 = div 밑에 ul 밑에 li 3개 생성됨 -->
+    <div>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <!-- 형제 요소 (+) -->
+    <!-- div+p+span -->
+    <div></div>
+    <p></p>
+    <span></span>
+    <!-- 상위 요소로 이동 (^) -->
+    <!-- div>p>span^h1 -->
+    <div>
+      <p><span></span></p>
+      <h1></h1>
+    </div>
+    <!-- 곱하기 (*) -->
+    <!-- ul>li*3 -->
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <!-- id와 class -->
+    <!-- 태그이름#id     / 태그이름.class -->
+    <!-- #id => id가 id인 div 생성 / .class => class가 class인 div 생성 -->
+    <!-- div#id.class1.class2 -->
+    <div id="id" class="class1 class2"></div>
+
+    <!-- 속성 추가([]) -->
+    <!-- a[href='http://server.com'] -->
+    <a href="http://server.com"></a>
+    <!-- img[src='img.jpg'][alt='이미지'] -->
+    <img src="img.jpg" alt="이미지" />
+
+    <!-- 넘버링 ($) -->
+    <!-- ul>li.item$*3 -->
+    <ul>
+      <li class="item1"></li>
+      <li class="item2"></li>
+      <li class="item3"></li>
+    </ul>
+    <!-- ul>li.item$*3{hello$s} -->
+    <ul>
+      <li class="item1">hello1s</li>
+      <li class="item2">hello2s</li>
+      <li class="item3">hello3s</li>
+    </ul>
+
+    <!-- 텍스트 내용 ({}) -->
+    <!-- div{Item $}*3 -->
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+
+    <!-- 그룹화 (()) -->
+    <!-- div>(header>ul>li*2)+fotter>p -->
+    <div>
+      <header>
+        <ul>
+          <li></li>
+          <li></li>
+        </ul>
+      </header>
+      <fotter>
+        <p></p>
+      </fotter>
+    </div>
+
+    <!-- 실제 사용 예시 -->
+    <!-- nav>ul.menu>li.menu-item*4>a[href="#"]{Menu $} -->
+    <nav>
+      <ul class="menu">
+        <li class="menu-item"><a href="#">Menu 1</a></li>
+        <li class="menu-item"><a href="#">Menu 2</a></li>
+        <li class="menu-item"><a href="#">Menu 3</a></li>
+        <li class="menu-item"><a href="#">Menu 4</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

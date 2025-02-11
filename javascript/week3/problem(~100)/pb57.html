@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb57-1의 개수</title>
+    <script>
+      let cnt = 0;
+      for (let i = 0; i <= 1000; i++) {
+        let k = i;
+        while (k > 0) {
+          if (k % 10 === 1) {
+            cnt++;
+          }
+          k = Math.floor(k / 10);
+        }
+      }
+      console.log(cnt);
+    </script>
+  </head>
+  <body></body>
+</html>

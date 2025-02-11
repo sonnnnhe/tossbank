@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>문서객체를 선택하는 함수</title>
+    <script>
+      // 문서 객체 모델(Document Object Model)
+      // 웹브라우저가 html문서를 로딩(분석)한 후에
+      // 트리 모양으로 관리하는 데이터 구조 또는 객체
+
+      // 문서객체를 선택
+      // 1. 아이디로 선택 : getElementById()
+      // 2. 클래스로 선택 : getElementsClassName() // element뒤에 s 붙음
+      // 3. 태그로 선택 : getElementsByTagName()
+      // 4. css선택자로 선택 : querySelector( css선택자 )
+      //                       querySelectorAll( css선택자 )
+
+      // let h1 = document.getElementById("header1");
+      // console.log(h1); //null
+      // h1.innerHTML = "찾음!"; //오류 발생
+
+      //onload() 함수 : 웹 브라우저가 HTML문서 로딩후에 한번 호출해줌
+      // 콜백함수 : 먼저 선언(등록)해놓고, 나중에 호출
+      // <방법 1 : onload 함수 작성>
+      window.onload = () => {
+        let h1 = document.getElementById("header1");
+        console.log(h1);
+        h1.innerHTML = "찾음!"; // 오류 안 남
+
+        let arrH2 = document.getElementsByClassName("header-h2");
+        console.log(arrH2);
+        for (let h2 of arrH2) {
+          h2.innerHTML = "찾음!";
+        }
+
+        let arrP = document.getElementsByTagName("p");
+        arrP[0].style.color = "red"; // 반복문 안 돌고 지정해서도 가능 (배열이기 때문)
+        for (let p of arrP) {
+          p.innerHTML = "찾음!";
+        }
+
+        //                                 css문법
+        let h1_2 = document.querySelector("#header2");
+        h1_2.style.backgroundColor = "green";
+
+        let arrH2_2 = document.querySelectorAll(".header-h2");
+        arrH2_2[0].style.backgroundColor = "yellow";
+      };
+    </script>
+  </head>
+  <body>
+    <h1 id="header1">제목태그 1</h1>
+    <h1 id="header2">제목태그 2</h1>
+    <h2 class="header-h2">제목태그 3</h2>
+    <h2 class="header-h2">제목태그 4</h2>
+    <h2 class="header-h2">제목태그 5</h2>
+    <p>문단태그 p</p>
+    <p>문단태그 p</p>
+    <p>문단태그 p</p>
+    <script>
+      // <방법 2 : body 내부에 script 작성>
+      let h1 = document.getElementById("header1");
+      console.log(h1);
+      h1.innerHTML = "찾음!"; // 오류 안 남
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb84-숫자뽑기</title>
+    <script>
+      let num = prompt("어떤 수 n을 입력하세요.").split("").map(Number);
+      let k = Number(prompt("몇개의 수를 뽑을지 입력하세요."));
+
+      let sorted = num.sort();
+      let rst = 0;
+      while (k--) {
+        let top = sorted.pop();
+        console.log("top :" + top);
+        console.log("k: " + k);
+
+        rst += top * Math.pow(10, k);
+        console.log("중간: " + rst);
+      }
+
+      console.log(rst);
+    </script>
+  </head>
+  <body></body>
+</html>

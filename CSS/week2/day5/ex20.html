@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CSS 크기 단위</title>
+    <!-- 크기단위 : px 픽셀, % 백분율(기본 크기 대비) -->
+    <!--          : em 배수(부모 대비), rem 배수(root(최상위태그인 html태그) 대비) -->
+    <style>
+      p:nth-child(1) {
+        /* 생략 - 기본 16px */
+      }
+      p:nth-child(2) {
+        font-size: 8px;
+      }
+      p:nth-child(3) {
+        font-size: 16px;
+      }
+      p:nth-child(4) {
+        font-size: 24px;
+      }
+      p:nth-child(5) {
+        font-size: 32px;
+      }
+
+      /* % 백분율 */
+      p:nth-child(1) {
+        /* 기본 */
+      }
+      p:nth-child(2) {
+        /* 원래 크기 */
+        font-size: 100%;
+      }
+      p:nth-child(3) {
+        /* 원래 크기 1.5배 */
+        font-size: 150%;
+      }
+      p:nth-child(4) {
+        /* 원래 크기 2배 */
+        font-size: 200%;
+      }
+      p:nth-child(5) {
+        /* 원래 크기 3배 */
+        font-size: 300%;
+      }
+
+      /* em 배수 */
+      div {
+        /* em 사용하여 p태그의 크기 지정 시, 
+        div의 font-size를 바꾸게 되면 p태그들의 크기도 함께 바뀐다. */
+        font-size: 20px;
+      }
+      p:nth-child(1) {
+        /* 기본 */
+      }
+      p:nth-child(2) {
+        /* 자신의 부모태그, 여기선 div태그의 크기의 1배 */
+        font-size: 1em;
+      }
+      p:nth-child(3),
+      p:nth-child(4),
+      p:nth-child(5) {
+        /* div태그 크기의 2배 */
+        font-size: 2em;
+      }
+
+      /* rem 배수 */
+      p:nth-child(1) {
+        font-size: 0.5rem;
+      }
+      p:nth-child(2) {
+        /* root(html태그 16px)의 1배 */
+        font-size: 1rem;
+      }
+      p:nth-child(3) {
+        /* root(html태그 16px)의 2배 */
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    기본글씨 크기는 16px입니다.
+    <div>
+      <p>문단태그 p입니다. 1</p>
+      <p>문단태그 p입니다. 2</p>
+      <p>문단태그 p입니다. 3</p>
+      <p>문단태그 p입니다. 4</p>
+      <p>문단태그 p입니다. 5</p>
+    </div>
+  </body>
+</html>

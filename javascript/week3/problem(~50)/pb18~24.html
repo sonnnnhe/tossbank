@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb18~24</title>
+    <script>
+      // Q18.
+      while (true) {
+        let input = prompt("숫자를 입력하세요.");
+        if (input == "quit") {
+          break;
+        }
+        if (Number(input) % 3 == 0) {
+          console.log("짝");
+        } else {
+          console.log(input);
+        }
+      }
+
+      // Q19.
+      let planet = [
+        "수성",
+        "금성",
+        "지구",
+        "화성",
+        "목성",
+        "토성",
+        "천왕성",
+        "해왕성",
+      ];
+      let num = prompt("행성의 순서를 입력하세요.(1~8)");
+      console.log(planet[Number(num) - 1]);
+
+      // Q20.
+      let height = Number(prompt("키를 입력하세요."));
+      if (height >= 150) {
+        console.log("YES");
+      } else {
+        console.log("NO");
+      }
+
+      // Q21.
+      console.log("정답: 2번");
+
+      // Q22.
+      console.log("정답: X");
+
+      // Q23.
+      let name = prompt("이름을 입력하세요.");
+      console.log(name.toUpperCase());
+
+      // Q24.
+      let match = {
+        수성: "Mercury",
+        금성: "Venus",
+        지구: "Earth",
+        화성: "Mars",
+        목성: "Jupiter",
+        토성: "Saturn",
+        천왕성: "Uranus",
+        해왕성: "Neptune",
+      };
+      let nameP = prompt("행성의 한글 이름을 입력하세요.");
+      console.log(match[nameP]);
+    </script>
+  </head>
+  <body></body>
+</html>

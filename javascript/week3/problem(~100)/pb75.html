@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb75-이상한 369</title>
+    <script>
+      let n = prompt("박수를 친 횟수를 입력하세요.").split("");
+      function sol(arr) {
+        let rst = 0;
+        let cnt = 1;
+        let d = {
+          3: 1,
+          6: 2,
+          9: 3,
+        };
+        while (arr.length != 0) {
+          rst += d[arr.pop()] * cnt;
+          cnt *= 3;
+        }
+        return rst;
+      }
+      console.log(sol(n));
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb53-괄호 문자열</title>
+    <script>
+      let str = prompt("괄호 문자열을 입력하세요.").split("");
+      let cntS = 0;
+      let cntM = 0;
+      let cntL = 0;
+      for (items of str) {
+        if (items === "(") {
+          cntS++;
+        } else if (items === ")") {
+          cntS--;
+        } else if (items === "{") {
+          cntM++;
+        } else if (items === "}") {
+          cntM--;
+        } else if (items === "[") {
+          cntL++;
+        } else {
+          cntL--;
+        }
+      }
+      if (cntS == 0 && cntM == 0 && cntL == 0) {
+        console.log("YES");
+      } else {
+        console.log("NO");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

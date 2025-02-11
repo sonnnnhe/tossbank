@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ex20_14</title>
+  </head>
+  <body>
+    <h3>설문조사</h3>
+
+    <form>
+      <fieldset>
+        <legend>성별과 나이를 입력하세요.</legend>
+        성별:
+        <input type="radio" name="sex" id="male" />
+        <label for="male">남자</label>
+        <input type="radio" name="sex" id="female" />
+        <label for="female">여자</label>
+        <br />
+
+        <label for="age">나이: </label>
+        <input type="text" id="age" />
+      </fieldset>
+      <br /><br />
+
+      <fieldset>
+        <legend>관심 분야를 선택하세요.(1개 이상)</legend>
+        <input type="checkbox" name="part" id="check1" value="ck1" />
+        <label for="check1">디지털 콘텐츠</label>
+        <input type="checkbox" name="part" id="check2" value="ck2" />
+        <label for="check2">웹프로그래밍</label>
+        <input type="checkbox" name="part" id="check3" value="ck3" />
+        <label for="check3">데이터베이스</label>
+        <input type="checkbox" name="part" id="check4" value="ck4" />
+        <label for="check4">전자출판</label>
+      </fieldset>
+      <br /><br />
+
+      <fieldset>
+        <legend>다음 문항에 대해 5점 척도로 답하세요.</legend>
+        <label for="range1">본 세미나의 주제는 만족스러운가?</label>
+        1
+        <input type="range" id="range1" min="1" max="5" step="1" value="3" /> 5
+        <br />
+        <label for="range2">본 세미나의 초청 강사는 만족스러운가?</label>
+        1
+        <input type="range" id="range2" min="1" max="5" step="1" value="3" /> 5
+        <br />
+        <label for="range3">본 세미나의 강의 시간은 적당한가?</label>
+        1
+        <input type="range" id="range3" min="1" max="5" step="1" value="3" /> 5
+        <br />
+      </fieldset>
+      <br /><br />
+
+      <label for="opinion">기타 의견 사항</label><br />
+      <textarea name="op" id="opinion" cols="50" rows="5">
+의견을 적으세요</textarea
+      >
+      <br /><br />
+
+      <button type="button" onclick="alert('의견이 제출되었습니다.')">
+        확인
+      </button>
+      <button type="button" onclick="alert('정상적으로 취소되었습니다.')">
+        취소
+      </button>
+    </form>
+  </body>
+</html>

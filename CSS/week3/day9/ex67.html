@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>수평/수직 정렬(align)</title>
+    <!-- 1. text-align: 2행 이상에서 오동작할 수 있음 -->
+    <!-- 2. vertical-align: inline, inline-block, table에서만 가능 -->
+    <!-- 3. line-height: 부모와 자신의 높이 동일하게 조정 -->
+    <!-- 4. margin/padding: 정확하지 않다 -->
+    <!-- 5. absolute, top, left, bottom, right: 부정확 -->
+    <!-- 6. flexbox : center -->
+    <!-- 6번 flexbox 쓰는 게 나음 -->
+    <!-- 7. css grid : center => 최근에 나옴. -->
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .box1 {
+        border: 1px solid red;
+        height: 100px;
+        /* 6번 display: flex;
+        justify-content: center;
+        align-items: center; */
+      }
+      .box2 {
+        border: 1px solid blue;
+        text-align: center;
+        /* 3번 line-height: 100px; */
+        /* 4번 margin-top: 33px; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"><h3 class="box2">가운데로 정렬해주세요.</h3></div>
+  </body>
+</html>

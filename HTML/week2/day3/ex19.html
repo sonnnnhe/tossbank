@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>입력태그의 종류3</title>
+  </head>
+  <body>
+    <form action="http://www.myserver.com">
+      <!-- type: hidden 숨김 속성, 사용자에게는 보이지 않고, -->
+      <!-- 서버에는 입력값이 전달되는 용도 -->
+      <input type="hidden" name="hiddenVal" value="게시물 아이디값" />
+      <br />
+
+      <!-- 선택목록 태그: select태그 -->
+      <!-- multiple 설정 시 다수 선택 가능, 기본 : 하나 선택 -->
+      <select name="drink">
+        <option value="1">콜라</option>
+        <option value="2" selected>사이다</option>
+        <option value="3">쥬스</option>
+      </select>
+
+      <!-- 수평선 태그 : hr태그 -->
+      <hr />
+
+      <!-- 색상 선택 태그 -->
+      <!-- value 값으로 색상 기본값 지정 -->
+      <input type="color" name="color" value="#FF0000" />
+      <!-- 색상 표현 : 빛의 3원색 -->
+      <!-- R: red, G: green, B: blue, A: alpha 투명도 -->
+      <!-- 4바이트로 1픽셀 색상을 지정함 : RGBA -->
+      <!-- Red: 1바이트 : 0~255 : 8bit -->
+      <!-- Green: 1바이트 : 0~255 : 8bit -->
+      <!-- Blue: 1바이트 : 0~255 : 8bit -->
+      <!-- Alpah : 1바이트 : 0.0 ~ 1.0 : 8bit, 0에 가까울수록 투명함 -->
+
+      <!-- 날짜 선택 태그 -->
+      <input type="date" name="date" value="2025-01-06" />
+      <!-- 날짜시간 선택 태그 -->
+      <!-- 한국에선 datetime(표준) 대신 datetime-local 사용. 더 정확함 -->
+      <input
+        type="datetime-local"
+        name="datetime"
+        value="2025-01-06T12:27:00"
+      />
+
+      <!-- email -->
+      <input type="email" name="email" value="abc@gmail.com" />
+      <!-- email 다중선택 -->
+      <input
+        type="email"
+        name="email"
+        value="abc@gmail.com, 123@gmail.com"
+        multiple
+      />
+      <!-- 달(Month) -->
+      <input type="month" name="month" value="2025-01" />
+      <!-- 숫자(Number) -->
+      <input type="number" value="10" min="5" max="10" step="1" />
+      <!-- 범위 -->
+      <input type="range" value="1" min="1" max="5" step="1" />
+      <!-- 많은 양의 텍스트를 입력받을 때 : textarea 태그 -->
+      <!-- cols: 한 줄에 최대 문자 개수, rows: 최대 줄 수 -->
+      <textarea name="memo" cols="30" rows="10">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi dolore aspernatur ut aliquid non repellendus, accusamus neque? Quidem suscipit consequuntur dolore maiores! Dolore quos ex quasi dicta explicabo reprehenderit temporibus?
+       </textarea
+      >
+    </form>
+  </body>
+</html>

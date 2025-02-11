@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb79-순회하는 리스트</title>
+    <script>
+      const l = [10, 20, 25, 27, 34, 35, 39];
+      const n = Number(prompt("순회횟수는?"));
+
+      function rotate(inL, inN) {
+        const copyL = [...l];
+
+        while (inN--) {
+          let num = inL.pop();
+          inL.unshift(num);
+        }
+
+        let rst = [];
+        for (let i = 0; i < inL.length; i++) {
+          let max = Math.max(copyL[i], inL[i]);
+          let min = Math.min(copyL[i], inL[i]);
+
+          rst.push(max - min);
+        }
+
+        let min = 1000;
+        let minIdx = 0;
+        for (let i = 0; i < rst.length; i++) {
+          if (rst[i] < min) {
+            min = rst[i];
+            minIdx = i;
+          }
+        }
+
+        console.log(`index : ${minIdx}`);
+        console.log(`value : ${copyL[minIdx]}, ${inL[minIdx]}`);
+      }
+
+      rotate(l, n);
+    </script>
+  </head>
+  <body></body>
+</html>

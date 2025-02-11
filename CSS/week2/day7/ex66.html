@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>변형 속성 - transform속성</title>
+    <!-- 크기, 각도 등이 변형되는 것 -->
+    <!-- 2차원(XY평면), 3차원(XYZ평면) -->
+    <!-- 2차원 좌표계 : Left-Top이 원점 -->
+    <!-- 3차원 좌표계 : 2차원 + z축 -->
+    <!--                z+방향: 모니터 앞으로 -->
+    <!--                z-방향: 모니터 뒷면으로 -->
+    <!-- rotate(각도값) : 회전 -->
+
+    <!-- translate(x, y) : X, Y좌표로 이동 -->
+    <!-- translateX(x) : X좌표만 이동 -->
+    <!-- translateY(y) : Y좌표만 이동 -->
+
+    <!-- scale(X, Y) : 크기 원래값 1, 2이면 2배 -->
+    <!-- scaleX(X) : X좌표의 크기 -->
+    <!-- scaleY(Y) : Y좌표의 크기 -->
+
+    <!-- skew(X, Y) : 기울이기 -->
+    <!-- skewX(X) : X축 방향으로 기울이기 -->
+    <!-- skewY(Y) : Y축 방향으로 기울이기 -->
+
+    <!-- transform-origin : 앵커값(회전기준) -->
+    <style>
+      section {
+        width: 100px;
+        height: 100px;
+        border: 5px solid black;
+      }
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+
+        /* transform: rotate(45deg); */
+        /* left bottom이 기준이 되는 것. 기본값은 center임 */
+        /* left bottom 기준으로 45도 돌게 되는 것이다. */
+        /* transform-origin: left bottom; */
+        /* 원래 기준점에서 30% 60% 정도 떨어진 곳을 기준으로... */
+        /* transform-origin: 30% 60%; */
+
+        /* 따로 쓰면 적용 안됨. 함께 써야함 */
+        /* transform: translate(30px, 30px) rotate(30deg); */
+
+        transform: skewX(-10deg);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div></div>
+    </section>
+  </body>
+</html>

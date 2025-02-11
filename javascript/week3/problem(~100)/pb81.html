@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb81-지뢰찾기</title>
+    <script>
+      let flag = [];
+      let minesweeper = [];
+      let cnt = 0;
+
+      for (let i = 0; i < 5; i++) {
+        let element = prompt("깃발의 위치를 입력하세요.").split(" ");
+        flag.push(element);
+      }
+      minesweeper = [...flag];
+
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5; j++) {
+          if (flag[i][j] === "1") {
+            minesweeper[i][j] = "f";
+            minesweeper[i][j + 1] = "*";
+            minesweeper[i + 1][j] = "*";
+            if (j !== 0) {
+              minesweeper[i][j - 1] = "*";
+            }
+            if (i !== 0) {
+              minesweeper[i - 1][j] = "*";
+            }
+          }
+        }
+      }
+
+      console.log(flag);
+      console.log(minesweeper);
+    </script>
+  </head>
+  <body></body>
+</html>

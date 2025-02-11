@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb25</title>
+    <script>
+      let name = prompt("학생의 이름을 입력하세요.").split(" ");
+      let score = prompt("수학 점수를 입력하세요.").split(" ");
+      let obj = {};
+      for (let i = 0; i < name.length; i++) {
+        obj[name[i]] = Number(score[i]);
+      }
+      console.log(obj);
+    </script>
+  </head>
+  <body></body>
+</html>

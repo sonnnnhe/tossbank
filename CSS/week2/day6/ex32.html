@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>구글 웹폰트 적용하기</title>
+    <!-- 폰트 적용하는 법 -->
+    <!-- 1. 사용자PC에 폰트 설치되어 있는 경우에만 -->
+    <!-- 2. 폰트파일(ttf, otf) 함께 배포 -->
+    <!-- 3. 인터넷 상의 폰트 파일 사용 (추천) -->
+    <!--     => 구글웹폰트 사이트 이용 -->
+    <!-- https://fonts.google.com/ -->
+
+    <!-- 사이트에서 해당 폰트 embed code 복사해오기 -->
+    <!-- 폰트 여러개 적용 시 아래 세 줄은 업데이트만 해주면 됨 (추가 세줄 더 작성 X)
+      마지막 링크에 Moirai+One&family=Nanum+Cothic 이런 식으로 폰트가 추가 되는 것 확인 가능 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Moirai+One&family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      h1 {
+        /* 사이트에서 해당 폰트 embed code 복사해오기 */
+        font-family: "Nanum Gothic", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      h2 {
+        font-family: "Moirai One", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>대한민국 홍길동 12345!@#$</h1>
+    <h2>코리아 Good Afternoon~ Korea~ 12345!@#$</h2>
+  </body>
+</html>

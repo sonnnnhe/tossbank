@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>position 속성</title>
+    <!-- 웹 페이지 만드는 과정 -->
+    <!-- 화면 레이아웃(배치) - 박스모델 -->
+    <!-- 1. html 태그 -->
+    <!-- 2. 시멘틱태그(header, footer, main, section, aside) -->
+    <!-- 3. div태그에 다 집어넣는다.
+            굳이 시멘틱 태그 안 써도 됨 <div id="header"> 이렇게 사용 가능 -->
+    <!-- 4. block, inline, inline-block -->
+    <!-- 5. flexbox 정렬/배치 : float 속성 -->
+    <!-- 6. width, height -->
+    <!-- 7. overflow: hidden -->
+    <!-- 8. margin, padding -->
+    <!-- 9. position -->
+    <!--    1) static : 기본값 = 순차적으로 쌓이는 방식 -->
+    <!--    2) relative : 상대좌표에 위치(원래 자기 위치에서 상대적이게) -->
+    <!--    3) absolute : 절대좌표에 위치
+                (기준: relative, absolute, fixed있는 부모태그     대부분 relative) -->
+    <!--    4) fixed : 고정좌표: 뷰포트(웹화면) 기준 -->
+    <!--    5) sticky : 특정 스크롤 위치에 고정 -->
+    <!-- 10. top, bottom, left, right - static에는 적용 불가
+                                      - 나머지 relative ~ sticky에는 가능 -->
+    <style>
+      #static-box {
+        background-color: aqua;
+      }
+      #relative-box {
+        position: relative;
+        top: 10px; /* 원래 자기 위치에서 위쪽이 10px만큼 떨어진 위치 */
+        left: 10px; /*        //         왼쪽이       //             */
+        background-color: blueviolet;
+      }
+      #container {
+        position: relative;
+        background-color: yellow;
+        height: 50px;
+        border: 1px solid red;
+      }
+      #absolute-box {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        color: white;
+        background-color: brown;
+      }
+      #fixed-box {
+        position: fixed; /* block에서 inline으로 바뀜 */
+        bottom: 10px; /* 화면 아래에서부터 10px 떨어짐.
+                        화면 크기가 바뀌어도 화면 아래에서부터 10px 떨어진 지점에 보임 */
+        right: 10px;
+        background-color: green;
+      }
+      #sticky-box {
+        position: sticky;
+        top: 0;
+        background-color: lightpink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="static-box">Static</div>
+    <div id="relative-box">Relative</div>
+    <!-- absolute 쓰려면 div로 감싸서 부모태그인 div에 relative 속성 부여 & height 적절하게 설정 -->
+    <div id="container">
+      <div id="absolute-box">Absolute</div>
+    </div>
+    <div id="fixed-box">Fixed</div>
+    <div id="sticky-box">Sticky Position(스크롤하면 상단에 고정됨.)</div>
+
+    <div id="content">
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas dolores
+        reprehenderit atque iste aut similique beatae fugiat, omnis, doloribus
+        amet animi magnam! Blanditiis dicta aliquid, atque dolore dolores rerum
+        quam?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas dolores
+        reprehenderit atque iste aut similique beatae fugiat, omnis, doloribus
+        amet animi magnam! Blanditiis dicta aliquid, atque dolore dolores rerum
+        quam?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas dolores
+        reprehenderit atque iste aut similique beatae fugiat, omnis, doloribus
+        amet animi magnam! Blanditiis dicta aliquid, atque dolore dolores rerum
+        quam?
+      </p>
+    </div>
+  </body>
+</html>

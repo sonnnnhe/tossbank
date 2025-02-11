@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>연습문제-영화웹페이지</title>
+    <!-- https://www.megabox.co.kr/movie -->
+    <style>
+      body {
+        margin: 20px auto 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 1100px;
+      }
+      .wrap {
+        width: 100%;
+      }
+
+      .header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 20px 5px;
+        height: 50px;
+      }
+      #header1 {
+        width: 100%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+      }
+      #header1 #leftlink a,
+      #rightlink a {
+        text-decoration: none;
+        font-size: 13px;
+        padding: 10px;
+      }
+      #leftlink a:link,
+      #rightlink a:link {
+        color: black;
+      }
+      #leftlink a:visited,
+      #rightlink a:visited {
+        color: black;
+      }
+      #header2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        border-bottom: 1px solid #351f67;
+        padding-top: 0;
+      }
+      #header2 .pic {
+        width: 36px;
+        height: 36px;
+        font-size: 0;
+      }
+      #header2 #menu {
+        /* 메뉴 이미지 */
+        background: url("ico-sitemap.png") no-repeat 0 0;
+        background-position: center;
+      }
+      #header2 #search {
+        /* 검색 이미지 */
+        background: url("ico-search.png") no-repeat 0 0;
+        background-position: center;
+      }
+
+      .nav {
+        padding: 0;
+      }
+      .nav-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      .nav-item {
+        position: relative;
+      }
+      .nav-item > a {
+        text-decoration: none;
+        display: block;
+        padding: 15px 20px;
+        padding-top: 0;
+      }
+      .nav-item > a:hover {
+        border-bottom: 5px solid rgb(0, 156, 173);
+      }
+
+      /* 드롭다운 메뉴 */
+      .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(0, 156, 173);
+        display: none;
+        z-index: 1000;
+      }
+      .dropdown li {
+        width: 200px;
+      }
+      .dropdown a {
+        display: block;
+        padding: 10px 15px;
+        color: white;
+        text-decoration: none;
+        font-size: 13px;
+      }
+      .dropdown a:hover {
+        background-color: rgb(0, 156, 173);
+      }
+      /* 커서가 올라갔을 때 드롭다운 표시 */
+      .nav-item:hover .dropdown {
+        display: flex;
+        justify-content: flex-start;
+      }
+      .nav-item > .pic {
+        width: 36px;
+        height: 20px;
+        margin-top: 10px;
+        padding-bottom: 5px;
+      }
+      .nav-item #movie {
+        background: url("gnb-txt-movie.png") no-repeat 0 0;
+        background-position: top;
+      }
+      .nav-item #reservation {
+        background: url("gnb-txt-reserve.png") no-repeat 0 0;
+        background-position: top;
+      }
+      .nav-item #theater {
+        background: url("gnb-txt-theater.png") no-repeat 0 0;
+        background-position: top;
+      }
+
+      #logo {
+        width: 140px;
+        height: 47px;
+        background: url("logo_new2.png") no-repeat 0 0;
+        background-position: top;
+      }
+
+      .nav-item #event {
+        background: url("gnb-txt-event.png") no-repeat 0 0;
+        background-position: top;
+      }
+      .nav-item #store {
+        background: url("gnb-txt-store.png") no-repeat 0 0;
+        background-position: top;
+      }
+      .nav-item #benefit {
+        background: url("gnb-txt-benefit.png") no-repeat 0 0;
+        background-position: top;
+      }
+      #header2 #schedule {
+        /* 달력 이미지 */
+        background: url("ico-schedule.png") no-repeat 0 0;
+        background-position: center;
+      }
+      #header2 #mypage {
+        /* 사람 이미지 */
+        background: url("ico-mymega.png") no-repeat 0 0;
+        background-position: center;
+      }
+
+      .inner-wrap {
+        display: flex;
+        align-items: center;
+        width: 1140px;
+        height: 35px;
+        margin: 0 auto;
+        background-color: rgb(245, 245, 245);
+      }
+
+      .location #span1 {
+        background: url(https://img.megabox.co.kr/static/pc/images/common/bg/bg-location-home.png)
+          no-repeat center;
+        text-decoration: none;
+        color: transparent;
+      }
+      .location .span2 {
+        background: url(https://img.megabox.co.kr/static/pc/images/common/bg/bg-location-arr.png)
+          no-repeat center;
+        text-decoration: none;
+        color: transparent;
+      }
+      .location a {
+        font-size: 14px;
+        text-decoration: none;
+      }
+      .location a:link {
+        color: gray;
+      }
+      .location a:visited {
+        color: gray;
+      }
+
+      #topL {
+        font-size: 25px;
+        font-weight: 545;
+      }
+
+      .bar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .bar div {
+        width: 220px;
+        height: 40px;
+        align-content: center;
+        text-align: center;
+        border: 1px solid rgb(231, 231, 231);
+        border-bottom: 1px solid #351f67;
+      }
+      .bar div:nth-child(1) {
+        border: 1px solid #351f67;
+        border-bottom: none;
+        color: #351f67;
+      }
+
+      .inner-main {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+      }
+      /* toggle switch */
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 30px;
+        height: 17px;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 13px;
+        width: 13px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+      /* Rounded sliders */
+      .slider.round {
+        border-radius: 34px;
+      }
+      .slider.round:before {
+        border-radius: 50%;
+      }
+      #toggle {
+        display: flex;
+        align-items: center;
+      }
+      #toggle * {
+        font-size: 13px;
+      }
+      #tsL {
+        margin-right: 20px;
+      }
+
+      .ss > input {
+        border: none;
+        width: 190px;
+      }
+      .ss {
+        border: 1px solid lightgray;
+        border-radius: 3px;
+        padding: 5px 5px 8px 5px;
+        margin-right: 20px;
+      }
+
+      .mform {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-bottom: 60px;
+      }
+      .mform .mlist .mi {
+        display: flex;
+        flex-direction: column;
+        width: 230px;
+        height: 331px;
+        border-radius: 8px;
+      }
+      .mform .minfor {
+        padding-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        width: 230px;
+        height: 100px;
+      }
+      .title {
+        display: flex;
+        align-items: center;
+        height: 30px;
+      }
+      .mform .minfor .title img {
+        width: 23px;
+        height: 23px;
+        border-radius: 0;
+        padding-right: 5px;
+      }
+      .title .mt {
+        font-size: 18px;
+      }
+      .mform .minfor .ex1 {
+        height: 30px;
+        font-size: 15px;
+        color: rgb(38, 38, 38);
+        align-self: center;
+      }
+      .ex1 span {
+        color: lightgray;
+      }
+      .mform .minfor .ex2 {
+        width: 230px;
+        height: 30px;
+        display: flex;
+        justify-content: space-around;
+      }
+      .heart {
+        width: 72px;
+        height: 36px;
+        border-radius: 5px;
+        border: 1px solid lightgray;
+        background-color: white;
+        color: #503396;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .button {
+        width: 74px;
+        height: 36px;
+        border-radius: 5px;
+        border: none;
+        background-color: #503396;
+        color: white;
+      }
+      .button .bi {
+        padding: 5px 0 0;
+        width: 49px;
+        height: 21px;
+      }
+      .heart .hi {
+        margin-right: 5px;
+        width: 17px;
+        height: 15px;
+        background: url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-heart-toggle-gray.png);
+      }
+      #heart2 {
+        width: 72px;
+        margin-right: 5px;
+      }
+      #button2 {
+        width: 153px;
+      }
+      .rank {
+        position: absolute;
+        font-size: 2em;
+        font-style: italic;
+        font-family: Roboto, Dotum, "돋움", sans-serif;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+        color: #fff;
+        margin: 7px;
+      }
+
+      .container {
+        position: relative;
+        width: 230px;
+        height: 331px;
+      }
+      .overlay {
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 230px;
+        height: 331px;
+        background-color: rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 5px;
+        padding: 20px;
+      }
+      .container:hover .overlay {
+        opacity: 1;
+      }
+      .overlay div {
+        box-sizing: border-box;
+        height: 110px;
+        font-size: 13.5px;
+        font-weight: 550;
+        font-family: Arial, sans-serif;
+        color: white;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="header" id="header1">
+        <div id="leftlink">
+          <a href="#">VIP LOUNGE</a>
+          <a href="#">멤버십</a>
+          <a href="#">고객센터</a>
+        </div>
+        <div id="rightlink">
+          <a href="#">로그인</a>
+          <a href="#">회원가입</a>
+          <a href="#">빠른예매</a>
+        </div>
+      </div>
+
+      <div class="header" id="header2">
+        <a href="#" class="pic" id="menu">사이트맵</a>
+        <a href="#" class="pic" id="search">검색</a>
+
+        <nav class="nav">
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="#" class="pic" id="movie">영화</a>
+              <ul class="dropdown">
+                <li><a href="#">전체영화</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="pic" id="reservation">예매</a>
+              <ul class="dropdown">
+                <li><a href="#">빠른예매</a></li>
+                <li><a href="#">상영시간표</a></li>
+                <li><a href="#">더 부티크 프라이빗 예매</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="pic" id="theater">극장</a>
+              <ul class="dropdown">
+                <li><a href="#">전체극장</a></li>
+                <li><a href="#">특별관</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div id="logo"></div>
+
+        <nav class="nav">
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="#" class="pic" id="event">이벤트</a>
+              <ul class="dropdown">
+                <li><a href="#">진행중 이벤트</a></li>
+                <li><a href="#">지난 이벤트</a></li>
+                <li><a href="#">당첨자 발표</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="pic" id="store">스토어</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="pic" id="benefit">혜택</a>
+              <ul class="dropdown">
+                <li><a href="#">메가박스 멤버십</a></li>
+                <li><a href="#">제휴/할인</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <a href="#" class="pic" id="schedule">달력</a>
+        <a href="#" class="pic" id="mypage">MP</a>
+      </div>
+
+      <div class="inner-wrap">
+        <div class="location">
+          <span id="span1">Home</span>
+          <span class="span2">></span>
+          <a href="#">영화</a>
+          <span class="span2">></span>
+          <a href="#">전체영화</a>
+        </div>
+      </div>
+
+      <p id="topL">전체영화</p>
+
+      <div class="main">
+        <div class="bar">
+          <div>박스오피스</div>
+          <div>상영예정작</div>
+          <div>단독</div>
+          <div>필름소사이어티</div>
+          <div>클래식소사이어티</div>
+        </div>
+
+        <div class="inner-main">
+          <div id="toggle">
+            <label class="switch">
+              <input type="checkbox" id="ts" />
+              <span class="slider round"></span>
+            </label>
+            <label for="ts" id="tsL">개봉작만</label>
+            <span><b>89</b>개의 영화가 검색되었습니다.</span>
+          </div>
+
+          <div class="ss">
+            <input type="text" placeholder="영화명 검색" id="ms" />
+            <label for="ms"
+              ><img
+                src="https://img.megabox.co.kr/static/pc/images/common/btn/btn-search-input.png"
+            /></label>
+          </div>
+        </div>
+
+        <div class="mform">
+          <div class="mlist">
+            <div class="container">
+              <p class="rank">1</p>
+              <img
+                class="mi"
+                src="https://img.megabox.co.kr/SharedImg/2025/01/06/veoYkRw8THPbrE9FobWUP1BVmEbMOXnp_420.jpg"
+              />
+              <div class="overlay">
+                <div>
+                  “연주할 때만 느껴지는 감정이 있거든. 그게 널 만나면 느껴져”
+                  유학 중이던 피아니스트 유준은 팔목 치료를 위해 한국에 교환
+                  학생으로 오게 된다. 학교에 처음 간 그날, 신비로운 피아노
+                  선율에 이끌려 도착한 연습실에서 유준은 정아와 마주치고,
+                  운명처럼 끌린 두 사람은 시간을 보내며 가까워진다.
+                </div>
+              </div>
+            </div>
+
+            <div class="minfor">
+              <div class="title">
+                <img
+                  src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png"
+                />
+                <div class="mt">말할 수 없는 비밀</div>
+              </div>
+
+              <div class="ex1">
+                예매율 26.2% <span>|</span> 개봉일 2025.01.28
+              </div>
+              <div class="ex2">
+                <button type="button" class="heart">
+                  <div class="hi"></div>
+                  <span>681</span>
+                </button>
+                <button type="button" class="button">예매</button>
+                <button type="button" class="button">
+                  <img
+                    class="bi"
+                    src="https://www.megabox.co.kr/static/pc/images/common/btn/mov_list_db_btn.png
+                  "
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mlist">
+            <div class="container">
+              <p class="rank">2</p>
+              <img
+                class="mi"
+                src="https://img.megabox.co.kr/SharedImg/2025/01/06/0XDjkXDLm7waDVJ9leltSNNBOrEpLGEU_420.jpg"
+              />
+              <div class="overlay">
+                <div>
+                  ‘유니아’ 수녀(송혜교)는 ‘희준’(문우진)의 몸에 숨어든 악령이
+                  12형상 중 하나라고 확신한다. 당장 올 수 없는 구마 사제를
+                  기다리다가 부마자가 희생될 것이 분명한 상황. 결국 ‘유니아’는
+                  소년을 구하기 위해 ‘서품을 받지 못한 수녀는 구마를 할 수
+                  없다’는 금기를 깨기로 결심한다.
+                </div>
+              </div>
+            </div>
+
+            <div class="minfor">
+              <div class="title">
+                <img
+                  src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
+                />
+                <div class="mt">검은 수녀들</div>
+              </div>
+
+              <div class="ex1">
+                예매율 13.2% <span>|</span> 개봉일 2025.01.24
+              </div>
+              <div class="ex2">
+                <button type="button" class="heart">
+                  <div class="hi"></div>
+                  <span>345</span>
+                </button>
+                <button type="button" class="button">예매</button>
+                <button type="button" class="button">
+                  <img
+                    class="bi"
+                    src="https://www.megabox.co.kr/static/pc/images/common/btn/mov_list_db_btn.png
+                  "
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mlist">
+            <div class="container">
+              <p class="rank">3</p>
+              <img
+                class="mi"
+                src="	https://img.megabox.co.kr/SharedImg/2025/01/10/WAC0I4UtsbCRjs4IvT4Vht9QYvdRTnDD_420.jpg"
+              />
+              <div class="overlay">
+                <div>
+                  ‘HITMAN IS BACK!’ 대한민국을 포복절도하게 만든 암살요원,
+                  이번엔 ‘암살요인 준’으로 돌아왔다! 욱해서 그린 웹툰 '암살요원
+                  준'의 성공으로 잠깐 흥행 작가가 된 '준'은 시즌2 연재 시작과
+                  동시에 '뇌절작가'로 전락하고, 망작이 된 시즌2는 되려 '준'을
+                  노리는 글로벌한 악당들의 내한 열풍을 일으킨다.
+                </div>
+              </div>
+            </div>
+
+            <div class="minfor">
+              <div class="title">
+                <img
+                  src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
+                />
+                <div class="mt">히트맨2</div>
+              </div>
+
+              <div class="ex1">
+                예매율 9.2% <span>|</span> 개봉일 2025.01.22
+              </div>
+              <div class="ex2">
+                <button type="button" class="heart" id="heart2">
+                  <div class="hi"></div>
+                  <span>157</span>
+                </button>
+                <button type="button" class="button" id="button2">예매</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mlist">
+            <div class="container">
+              <p class="rank">4</p>
+              <img
+                class="mi"
+                src="https://img.megabox.co.kr/SharedImg/2025/01/08/voFgSlrB9J2LLJqj7p6L6Zx03X3qFf6O_420.jpg"
+              />
+              <div class="overlay">
+                <div>
+                  1908년 함경북도 신아산에서 안중근이 이끄는 독립군들은
+                  일본군과의 전투에서 큰 승리를 거둔다. 대한의군 참모중장
+                  안중근은 만국공법에 따라 전쟁포로인 일본인들을 풀어주게 되고,
+                  이 사건으로 인해 독립군 사이에서는 안중근에 대한 의심과 함께
+                  균열이 일기 시작한다.
+                </div>
+              </div>
+            </div>
+
+            <div class="minfor">
+              <div class="title">
+                <img
+                  src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
+                />
+                <div class="mt">하얼빈</div>
+              </div>
+
+              <div class="ex1">
+                예매율 7.3% <span>|</span> 개봉일 2024.12.24
+              </div>
+              <div class="ex2">
+                <button type="button" class="heart">
+                  <div class="hi"></div>
+                  <span>1.4k</span>
+                </button>
+                <button type="button" class="button">예매</button>
+                <button type="button" class="button">
+                  <img
+                    class="bi"
+                    src="https://www.megabox.co.kr/static/pc/images/common/btn/mov_list_db_btn.png
+                  "
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mform">
+          <div class="mlist">
+            <div class="container">
+              <p class="rank">5</p>
+              <img
+                class="mi"
+                src="https://img.megabox.co.kr/SharedImg/2024/12/31/nj18f6ZDFpLxKy433HhWPsP39RPpTFrM_420.jpg"
+              />
+              <div class="overlay">
+                <div>
+                  희망 없는 인생, 기회는 바로 그 곳에 있었다. 1997년 IMF의
+                  후폭풍을 피하지 못한 국희(송중기)와 가족들은 지구 반대편
+                  콜롬비아 보고타로 향한다. 낯선 땅에서 살아남기 위해, 한인
+                  상인회의 권력을 쥔 박병장(권해효) 밑에서 일을 시작한 국희.
+                  성실함으로 박병장의 눈에 띈 국희는 박병장의 테스트로 의류 밀수
+                  현장에 가담하게 되고, 콜롬비아 세관에게 걸릴 위기 상황 속에서
+                  목숨 걸고 박병장의 물건을 지켜내며 박병장은 물론 통관 브로커
+                  수영(이희준)에게도 강렬하게 존재감을 각인시킨다.
+                </div>
+              </div>
+            </div>
+
+            <div class="minfor">
+              <div class="title">
+                <img
+                  src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
+                />
+                <div class="mt">보고타: 마지막 기회의 땅</div>
+              </div>
+
+              <div class="ex1">
+                예매율 7.3% <span>|</span> 개봉일 2024.12.31
+              </div>
+              <div class="ex2">
+                <button type="button" class="heart" id="heart2">
+                  <div class="hi"></div>
+                  <span>336</span>
+                </button>
+                <button type="button" class="button" id="button2">예매</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mlist">
+            <div class="container">
+              <p class="rank">6</p>
+              <img
+                class="mi"
+                src="https://img.megabox.co.kr/SharedImg/2024/12/24/Al3mUTVbHgJTAfiOGmFUOmMCBvlq1z27_420.jpg"
+              />
+              <div class="overlay">
+                <div>
+                  “기대에 부응해야지?” 엄마 옥자의 열성과 본인의 타고난 욕심으로
+                  교육 1번지 서울 대치동으로 위장 전입한 도현. 벤츠타고 다니는
+                  부자이면서 장애 혜택을 받아먹던 친구에게 교환학생의 기회마저
+                  뺏기고, 그 친구가 진짜 장애인이 아니었단 걸 알게 된 그 때부터
+                  정부 지원금의 맹점에 눈을 뜬다. 대학교 창업동아리에서 만난
+                  동기 지우와 함께 청년·여성·장애 등의 가산점을 악용해 청년 창업
+                  지원금을 수급하고, “창업 지원금은 나랏돈으로 망해 보라고 주는
+                  눈 먼 돈”임을 간파해 의도적으로 고의부도와 폐업을 전전한다.
+                  투자자 케빈에게 억대 후원을 받는 암호화폐 벤처를 창업한 도현은
+                  야망에 이끌려 ‘MOMMY’ 코인을 개발해 역대 최고치의 실적을
+                  내지만, 알고리즘과 불완전 이자 수익 등 금융기관으로부터
+                  모니터가 들어오게 되는데…
+                </div>
+              </div>
+            </div>
+
+            <div class="minfor">
+              <div class="title">
+                <img
+                  src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
+                />
+                <div class="mt">폭락</div>
+              </div>
+
+              <div class="ex1">
+                예매율 5.6% <span>|</span> 개봉일 2025.01.15
+              </div>
+              <div class="ex2">
+                <button type="button" class="heart" id="heart2">
+                  <div class="hi"></div>
+                  <span>84</span>
+                </button>
+                <button type="button" class="button" id="button2">예매</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mlist">
+            <div class="container">
+              <p class="rank">7</p>
+              <img
+                class="mi"
+                src="https://img.megabox.co.kr/SharedImg/2025/01/08/GUG7lU6RYPTfqPI5RP5Yq47kDrhf8n0m_420.jpg"
+              />
+              <div class="overlay">
+                <div>
+                  동화 작가가 꿈이지만 현실은 불법 음란물 단속팀 새내기인
+                  ‘단비’는 스타 작가를 찾던 성인 웹소설계 대부 ‘황대표’와 우연한
+                  사고로 노예 계약을 맺게 되면서 하루아침에 19금 소설을 쓰게
+                  된다. 생전 접한 적 없는 장르를 집필하는 데 난항을 겪던
+                  ‘단비’는 음란물 단속을 하다 권태기에 빠진 선배 ‘정석’의
+                  응원과, 친구들의 생생한 경험담에 힘입어 어느새 자신도 알지
+                  못했던 성스러운 재능을 발견하게 되는데…
+                </div>
+              </div>
+            </div>
+
+            <div class="minfor">
+              <div class="title">
+                <img
+                  src="https://img.megabox.co.kr/static/pc/images/common/txt/19_46x46.png"
+                />
+                <div class="mt">동화지만 청불입니다</div>
+              </div>
+
+              <div class="ex1">예매율 5% <span>|</span> 개봉일 2025.01.08</div>
+              <div class="ex2">
+                <button type="button" class="heart" id="heart2">
+                  <div class="hi"></div>
+                  <span>249</span>
+                </button>
+                <button type="button" class="button" id="button2">예매</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mlist">
+            <div class="container">
+              <p class="rank">8</p>
+              <img
+                class="mi"
+                src="https://img.megabox.co.kr/SharedImg/2024/12/26/FXR5TauIKb7ikPwpomWVsjTJ1l8pzxxu_420.jpg"
+              />
+              <div class="overlay">
+                <div>
+                  내가 평범한 여자애가 아니라도… 나를 좋아해줄래? 눈이 내리던
+                  어느 밤, 외톨이 ‘오스칼’은 옆집에 이사 온 소녀 ‘이엘리’를
+                  만난다 신비로운 매력의 ‘이엘리’에게 첫눈에 반한 ‘오스칼’은
+                  12살 하고도 8개월 9일이 되던 그날, 운명적인 첫사랑을 시작한다
+                  한편 마을에서는 기이한 살인 사건이 이어지고, ‘오스칼’은
+                  ‘이엘리’가 의문의 사건과 이어져 있다는 사실을 알게 되는데…
+                  사랑을 모르는 소년과 뱀파이어 소녀 영원한 첫사랑이 다시
+                  시작된다!
+                </div>
+              </div>
+            </div>
+
+            <div class="minfor">
+              <div class="title">
+                <img
+                  src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
+                />
+                <div class="mt">렛 미 인</div>
+              </div>
+
+              <div class="ex1">
+                예매율 2.9% <span>|</span> 개봉일 2025.01.15
+              </div>
+              <div class="ex2">
+                <button type="button" class="heart" id="heart2">
+                  <div class="hi"></div>
+                  <span>497</span>
+                </button>
+                <button type="button" class="button" id="button2">예매</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

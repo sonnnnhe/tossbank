@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb77-가장 긴 공통 부분 문자열</title>
+    <script>
+      let str1 = prompt("첫번째 문자열을 입력하세요.");
+      let str2 = prompt("두번째 문자열을 입력하세요.");
+
+      function sol(s1, s2) {
+        let l1 = s1.length;
+        let l2 = s2.length;
+        let arr = new Array();
+        let element = null;
+        let max = 0;
+
+        for (let i = 0; i <= l1; i++) {
+          element = new Array();
+          for (let j = 0; j <= l2; j++) {
+            element.push(0);
+          }
+          arr.push(element);
+        }
+
+        for (let i = 1; i <= l1; i++) {
+          for (let j = 1; j <= l2; j++) {
+            if (s1[i - 1] === s2[j - 1]) {
+              arr[i][j] = arr[i - 1][j - 1] + 1;
+              if (max < arr[i][j]) {
+                max = arr[i][j];
+              }
+            } else {
+              arr[i][j] = 0;
+            }
+          }
+        }
+
+        return max;
+      }
+
+      console.log(sol(str1, str2));
+    </script>
+  </head>
+  <body></body>
+</html>

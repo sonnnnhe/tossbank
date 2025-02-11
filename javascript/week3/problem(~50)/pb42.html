@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>2020년-요일 찾기</title>
+    <script>
+      let month = prompt("월을 입력하세요.");
+      let date = prompt("일을 입력하세요.");
+
+      let day = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+      let rst = new Date("2020-" + month + "-" + date).getDay();
+      console.log(day[rst]);
+    </script>
+  </head>
+  <body></body>
+</html>

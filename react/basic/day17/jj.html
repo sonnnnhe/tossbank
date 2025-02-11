@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      let arr = [1, 2, 3, 4, 5];
+      let filterArr = arr.filter((value) => value % 2 === 0);
+      console.log(filterArr);
+
+      let sum = arr.reduce((acc, cur) => {
+        console.log(acc, cur);
+        return acc + cur;
+      });
+      console.log(sum);
+
+      const userCard = [
+        {
+          name: "가나다",
+          age: 32,
+        },
+        {
+          name: "라마바",
+          age: 24,
+        },
+        {
+          name: "아자차",
+          age: 29,
+        },
+      ];
+
+      // 초기값 필수
+      const ageSum = userCard.reduce((acc, cur) => {
+        console.log(acc, cur.age);
+
+        return acc + cur.age;
+      }, 0);
+      console.log(ageSum);
+
+      const ageSum2 = userCard.reduce((acc, cur) => {
+        console.log(acc, cur.age);
+
+        return acc + cur.age;
+      });
+      console.log(ageSum);
+    </script>
+  </head>
+  <body></body>
+</html>

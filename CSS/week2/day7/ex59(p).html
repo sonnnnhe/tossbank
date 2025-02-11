@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>다음 로그인화면</title>
+    <style>
+      #wrap {
+        width: 580px;
+        height: 100%;
+
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding: 60px;
+      }
+      #header {
+        width: 88px;
+        height: 27px;
+        margin: 0 auto;
+        background: url("https://accounts.kakaocdn.net/images/rebuilding/pc/logo_kakao.png")
+          no-repeat 0 0;
+        background-size: 100px 80px;
+        background-position: 22px 15px;
+        padding: 20px;
+      }
+      
+      #main {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid lightgray;
+      }
+      #main * {
+        padding: 8px;
+      }
+      #login {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px;
+        padding-bottom: 0;
+      }
+      #login input {
+        font-size: 18px;
+        border: 0;
+        border-bottom: 3px solid lightgray;
+        margin: 5px;
+      }
+      #login input:focus {
+        outline: none;
+        border-bottom: 3px solid black;
+      }
+
+      #b2 {
+        margin-left: 40px;
+        display: flex;
+      }
+      #b2 label {
+        color: gray;
+        padding: 0;
+        padding-top: 8px;
+      }
+      #infor {
+        appearance: none;
+        background: url(https://accounts.kakaocdn.net/images/rebuilding/ico_comm.png)
+          no-repeat 0 0;
+        display: inline-block;
+        margin: 8px;
+        background-size: 150px auto;
+        background-position: 0px 0px;
+        padding: 10px
+      }
+      #infor:checked {
+        background: url(https://accounts.kakaocdn.net/images/rebuilding/ico_comm.png)
+          no-repeat 0 0;
+        display: inline-block;
+        margin: 8px;
+        background-size: 150px auto;
+        background-position: -25px 0px;
+      }
+      #account {
+        background: url(https://accounts.kakaocdn.net/images/rebuilding/ico_comm.png)
+          no-repeat 0 0;
+        display: inline-block;
+        margin: 8px;
+        background-size: 150px auto;
+        background-position: -130px -143px;
+        padding: 10px;
+      }
+
+      #b3 {
+        margin-left: 40px;
+        margin-right: 40px;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #inbutton, #qrbutton {
+        width: 480px;
+        height: 50px;
+        background-color: rgb(246, 227, 21);
+        border: none;
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 5px;
+      }
+      #hr {
+        display: flex;
+        justify-content: space-between;
+        margin-top : 13px;
+        color: gray;
+        font-size: 15px;
+        padding-bottom: 0;
+      }
+      #divider1, #divider2 {
+        display: inline-block;
+        width: 193px;
+        border: none;
+        border-top: 1px solid gray;
+        margin: 20px 0;
+      }
+      #qrbutton {
+        background-color: rgb(233, 233, 233);
+      }
+
+      #b4 {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      #b4 button {
+        background-color: transparent;
+        border: none;
+      }
+      #find span {
+        border-left: 1px solid gray;
+        padding: 0.1px;
+      }
+
+      #footer {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        flex-wrap: wrap;
+      }
+      #footer a {
+        margin: 5px;
+        font-size: 13px;
+        text-decoration: none;
+      }
+      #footer a:link {
+        color: black;
+      }
+      #footer a:visited {
+        color: black;
+      }
+      #footer select {
+        border: none;
+        font-size: 16px;
+      }
+      #footer div {
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="box" id="header"></div>
+
+      <div class="box" id="main">
+        <div class="box" id="login">
+          <input
+            type="text"
+            id="id"
+            name="id"
+            placeholder="카카오메일 아이디, 이메일, 전화번호"
+          />
+          <input type="password" id="pw" name="pw" placeholder="비밀번호" />
+        </div>
+
+        <div class="box" id="b2">
+          <input type="checkbox" id="infor"></input>
+          <label for="infor">로그인 상태 유지</label>
+          <div id="account"></div>
+        </div>
+
+        <div class="box" id="b3">
+          <button type="button" id="inbutton">로그인</button>
+          <div id="hr">
+            <div id="divider1"></div>
+            <span class="text">또는</span>
+            <div id="divider2"></div>
+          </div>
+          <button type="button" id="qrbutton">QR코드 로그인</button>
+        </div>
+
+        <div class="box" id="b4">
+          <button type="button" id="signup">회원가입</button>
+          <div id="find">
+            <button type="button" id="finda">계정 찾기</button>
+            <span></span>
+            <button type="button" id="pwfind">비밀번호 찾기</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="box" id="footer">
+        <a href="#">이용약관</a>
+        <a href="#">개인정보 처리방침</a>
+        <a href="#">운영정책</a>
+        <a href="#">고객센터</a>
+        <a href="#">공지사항</a>
+        <select name="lang" id="lng">
+          <option value="1">한국어</option>
+          <option value="2">일본어</option>
+          <option value="3">영어</option>
+          <option value="4">중국어</option>
+        </select>
+        <div>Copyright © Kakao Corp. All rights reserved.</div>
+      </div>
+    </div>
+  </body>
+</html>

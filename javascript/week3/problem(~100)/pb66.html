@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb66-블럭탑쌓기</title>
+    <script>
+      let tower = ["ABCDEF", "BCAD", "ADEFQRX", "BEDFG", "EFGHZ"];
+      let rule = "ABD";
+
+      function sol(block, str) {
+        let strIdx = str[0];
+        for (let char of block) {
+          if (str.includes(char)) {
+            if (strIdx > str.indexOf(char)) {
+              return "불가능";
+            }
+            strIdx = str.indexOf(char);
+          }
+        }
+        return "가능";
+      }
+
+      function sol2(arr, rule) {
+        let rst = [];
+        for (let item of arr) {
+          rst.push(sol(item, rule));
+        }
+        return rst;
+      }
+      console.log(sol2(tower, rule));
+    </script>
+  </head>
+  <body></body>
+</html>

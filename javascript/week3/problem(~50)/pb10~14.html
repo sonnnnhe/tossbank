@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb10~14</title>
+    <script>
+      // Q10.
+      document.write("Q10.<br>");
+      let string = prompt("아라비아숫자를 입력하세요.");
+      let rst = 2 * Number(string);
+      document.write("결과: " + rst + "<br>");
+
+      // Q11.
+      document.write("Q11.<br>");
+      let num = Number(prompt("세 자리 숫자를 입력하세요."));
+      let num1 = Math.floor(num % 10);
+      let num2 = Math.floor((num / 10) % 10);
+      let num3 = Math.floor(num / 100);
+      document.write(`백의 자릿수 ${num3}<br>`);
+      document.write(`십의 자릿수 ${num2}<br>`);
+      document.write(`일의 자릿수 ${num1}<br>`);
+
+      // Q12.
+      document.write("Q12.<br>");
+      let score = prompt("국어, 수학, 영어 시험 점수를 입력하세요.").split(" ");
+      let total = 0;
+      for (let i = 0; i < 3; i++) {
+        total += Number(score[i]);
+      }
+      document.write("출력: " + Math.floor(total / 3) + "<br>");
+
+      // Q13.
+      document.write("Q13.<br>");
+      let number = prompt("숫자 두개를 입력하세요.").split(" ");
+      let k1 = Number(number[0] / number[1]);
+      let k2 = Number(number[0] % number[1]);
+      document.write(`출력: ${k1} ${k2}`);
+
+      // Q14.
+      document.write("Q13.<br>");
+      let number2 = prompt("숫자 두개를 입력하세요.").split(" ");
+      let rst2 = Math.pow(Number(number2[0]), Number(number2[1]));
+      document.write("출력: " + rst2);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ex20_13</title>
+  </head>
+  <body>
+    <h3>레스토랑 예약하기</h3>
+    <form>
+      <fieldset>
+        <legend>예약자 정보</legend>
+        <label for="person">예약자: </label>
+        <input type="text" id="person" />
+        <br />
+        <label for="phone">연락처: </label>
+        <input type="text" id="phone" placeholder="000-000-0000" />
+        <br />
+        <label for="rp">예약인원: </label>
+        <select name="people" id="rp">
+          <option value="1" selected>2명</option>
+          <option value="2">3명</option>
+          <option value="3">4명</option>
+          <option value="4">5인 이상</option>
+        </select>
+      </fieldset>
+      <br /><br />
+
+      <fieldset>
+        <legend>일자 선택 및 시간 선택</legend>
+        <input type="date" value="연도-월-일" />
+        <input type="time" value="-- --:--" />
+      </fieldset>
+      <br /><br />
+
+      <button type="button" onclick="alert('예약이 확정되었습니다.')">
+        예약
+      </button>
+      <button type="button" onclick="alert('예약이 취소되었습니다.')">
+        취소
+      </button>
+    </form>
+  </body>
+</html>

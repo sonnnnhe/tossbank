@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb67-민규의 약속</title>
+    <script>
+      let n = Number(prompt("행사에서 진행된 악수의 횟수(n)를 입력하세요."));
+
+      function sol(realHS) {
+        let expectedHS = 0;
+        let participants = 1;
+        let minkyuHS = 0;
+        let prevHS = 0;
+        while (true) {
+          expectedHS = (participants * (participants - 1)) / 2;
+          if (expectedHS > realHS) {
+            minkyuHS = realHS - prevHS;
+            break;
+          }
+          participants++;
+          prevHS = expectedHS;
+        }
+        let arr = [minkyuHS, participants];
+        return arr;
+      }
+
+      console.log(sol(n));
+    </script>
+  </head>
+  <body></body>
+</html>

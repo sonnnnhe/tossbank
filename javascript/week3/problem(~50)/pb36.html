@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb36</title>
+    <script>
+      let scores = prompt("점수를 입력하세요.").split(" ").sort().reverse();
+      let cnt = 1;
+      let rst = 1;
+      for (let i = 1; i < scores.length; i++) {
+        if (scores[i] == scores[i - 1]) {
+          rst++;
+        } else {
+          cnt++;
+          if (cnt <= 3) {
+            rst++;
+          } else {
+            break;
+          }
+        }
+      }
+      console.log(rst);
+    </script>
+  </head>
+  <body></body>
+</html>

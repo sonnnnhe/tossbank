@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb78-원형 테이블</title>
+    <script>
+      let n = Number(prompt("음식의 개수 N을 입력하세요"));
+      let k = Number(prompt("몇번째 음식을 가져갈지 입력하세요."));
+
+      let arr = [];
+      for (let i = 2; i <= n; i++) {
+        arr.unshift(i);
+      }
+
+      let cnt = 1;
+      while (arr.length > 2) {
+        if (cnt === k) {
+          console.log(arr.pop());
+          cnt = 1;
+        } else {
+          cnt++;
+          let num = arr.pop();
+          arr.unshift(num);
+        }
+      }
+
+      console.log(arr.sort());
+    </script>
+  </head>
+  <body></body>
+</html>

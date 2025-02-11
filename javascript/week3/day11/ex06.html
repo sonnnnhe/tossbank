@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수와 상수</title>
+    <!-- 변수 : 메모리공간(주소)에 이름을 붙여놓은 것 -->
+    <!-- 상수 : 변수로서 한번 값이 지정되면 변경 불가능 -->
+    <!--      : PI(원주율)같은 고정값에 사용 -->
+
+    <!-- 요즘은 let을 더 많이 씀. var는 잘 안 씀 -->
+    <!-- var : 변수. 재선언 가능, 타입변경 가능 -->
+    <!-- let : 변수(최근에 추가됨) -->
+    <!-- const : 상수 -->
+    <script>
+      var num = 10; // 리터럴 : 하드코딩된 데이터
+      //               리터럴 값을 확인하고 타입을 결정
+      document.write(num + "<br>");
+      document.write(typeof num + "<br>"); // num의 type을 출력
+
+      // 동일 이름으로 재선언 가능 => 위험..
+      var num = "Hello js~";
+      document.write(num + "<br>");
+      document.write(typeof num + "<br>");
+
+      let myNum = 10;
+      document.write(myNum + "<br>");
+      document.write(typeof myNum + "<br>");
+
+      // let은 동일한 이름으로 변수 재선언 불가능
+      let myNum = "hello js~";
+
+      // 상수 선언(대문자로 사용)
+      const PI = 3.14;
+      // SyntaxError : 문법오류 발생
+      PI = 6.28;
+    </script>
+  </head>
+  <body></body>
+</html>

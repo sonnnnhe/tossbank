@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb54-연속되는 수</title>
+    <script>
+      let stamp = prompt("찍힌 스탬프를 입력하세요.").split(" ").map(Number);
+
+      function sol(arr) {
+        let success = true;
+        for (let i = 0; i < arr.length - 1; i++) {
+          if (arr[i] + 1 !== arr[i + 1] && arr[i] - 1 !== arr[i + 1]) {
+            success = false;
+            break;
+          }
+        }
+        if (success) {
+          console.log("YES");
+        } else {
+          console.log("NO");
+        }
+      }
+      sol(stamp);
+    </script>
+  </head>
+  <body></body>
+</html>

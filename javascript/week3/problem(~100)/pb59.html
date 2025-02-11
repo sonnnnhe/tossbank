@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb59-빈칸채우기</title>
+    <script>
+      let str = prompt("문자열을 입력하세요.");
+      let remain = 50 - str.length;
+      let rst = str.padStart(remain / 2, "=");
+      console.log(rst.padEnd(50, "="));
+    </script>
+  </head>
+  <body></body>
+</html>

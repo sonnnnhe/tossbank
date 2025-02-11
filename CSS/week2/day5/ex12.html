@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>반응(액션, 이벤트)선택자</title>
+    <!-- 반응: 이벤트(액션) ex)마우스 클릭, 오버 -->
+    <style>
+      /* active가 위로 왔을 때는 hover만 적용되고 active가 무시됨 */
+      /* cascading 때문에 순서에 따라 결과가 달라질 수 있음 */
+
+      /* hover 마우스커서가 위로 올라왔을 때 */
+      h1:hover {
+        color: blue;
+      }
+      /* active : 마우스 클릭 시.    :콜론 문자 이용 */
+      h1:active {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>반응선택자</h1>
+  </body>
+</html>

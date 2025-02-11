@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>p26~p30</title>
+    <script>
+      // Q26.
+      let string = prompt("문자열을 입력하세요.");
+      for (let i = 0; i < string.length - 1; i++) {
+        console.log(string[i] + " " + string[i + 1]);
+      }
+
+      // Q27.
+      let alphabet = prompt("알파벳 하나를 입력하세요.");
+      if (alphabet == alphabet.toUpperCase()) {
+        console.log("YES");
+      } else {
+        console.log("NO");
+      }
+
+      // Q28.
+      let str1 = prompt("문자열을 입력하세요.");
+      let str2 = prompt("찾을 문자를 입력하세요.");
+      console.log(str1.indexOf(str2));
+
+      // Q29.
+      console.log("정답: 3번, 5번");
+
+      // Q 30.
+      let words = prompt("자기소개서를 입력하세요.").split(" ");
+      console.log(words.length);
+    </script>
+  </head>
+  <body></body>
+</html>

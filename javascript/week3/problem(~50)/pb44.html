@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>각 자리수의 합</title>
+    <script>
+      let num = prompt("양의 정수를 입력하세요.");
+      let tot = 0;
+      let tmp = Number(num);
+      for (let i = 0; i < num.length; i++) {
+        tot += tmp % 10;
+        tmp = Math.floor(tmp / 10);
+      }
+      console.log(tot);
+    </script>
+  </head>
+  <body></body>
+</html>

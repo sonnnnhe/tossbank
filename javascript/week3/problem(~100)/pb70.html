@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>행렬 곱하기</title>
+    <script>
+      a = [
+        [1, 2],
+        [2, 4],
+      ];
+
+      b = [
+        [1, 0],
+        [0, 3],
+      ];
+
+      let rst = [];
+      if (b.length == a[0].length) {
+        for (let i = 0; i < a.length; i++) {
+          let row = [];
+          for (let j = 0; j < b[0].length; j++) {
+            let sol = 0;
+            for (let k = 0; k < b.length; k++) {
+              sol += a[i][k] * b[k][j];
+            }
+            row.push(sol);
+          }
+          rst.push(row);
+        }
+        console.log(rst);
+      } else {
+        console.log(-1);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

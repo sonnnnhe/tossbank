@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pb82 - 수학 괄호 파싱</title>
+    <script>
+      function math(e) {
+        //코드를 작성해주세요
+        let arr = e.replaceAll(" ", "");
+        let cntL = 0;
+        let cntR = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] === "(") {
+            cntL++;
+          } else if (arr[i] === ")") {
+            cntR++;
+          }
+        }
+
+        if (cntL === cntR) {
+          return "True";
+        }
+        return "False";
+      }
+
+      while (1) {
+        let order = prompt("데이터 입력(1), 프로그램 종료(2)");
+        if (order === "1") {
+          const ex = prompt("데이터를 입력하세요");
+          console.log(math(ex));
+        } else {
+          break;
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
