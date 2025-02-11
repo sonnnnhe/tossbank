@@ -5,3 +5,14 @@ export default function Aside() {
     </div>
   );
 }
+
+// const Footer = () => {
+//   return (
+//     <div
+//       id="footer"
+//       className="border border-black text-white bg-[#556B2F] text-[22px] flex flex-row flex-nowrap justify-center items-center h-[50px]"
+//     >
+//       Footer
+//     </div>
+//   );
+// };
