@@ -1,19 +1,26 @@
-import { useState, useCallback } from "react";
 import ThemeContext from "./ThemeContext";
-import ThemeContextUseContext from "./ThemeContextUseContext";
 
-function ThemeContextConsumer({ initTheme }) {
-  const [theme, setTheme] = useState(initTheme);
+function ThemeContextConsumer(props) {
+  return (
+    <ThemeContext.Consumer>
+      {({ theme, toggleTheme }) => {
+        const styles = {
+          width: "100vw",
+          height: "100vh",
+          padding: "1.5rem",
+          backgroundColor: theme === "light" ? "white" : "black",
+          color: theme === "light" ? "black" : "white",
+        };
 
-  // useMemo: 값이 저장
-  // useCallback: 함수를 저장해놓음
-  const toggleTheme = useCallback(() => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  }, [theme]);
+        return (
+          <div style={styles}>
+            <p>안녕하세요. 테마 변경이 가능한 웹사이트입니다.</p>
+            <button onClick={toggleTheme}>테마 변경</button>
+          </div>
+        );
+      }}
+    </ThemeContext.Consumer>
+  );
 }
 
 export default ThemeContextConsumer;
