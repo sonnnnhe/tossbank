@@ -43,3 +43,15 @@ serve -s dist
 - 깃허브 Pages
 - Vercel
 - AWS EC2 or 라이트세일(월정액)
+
+### dist폴더를 Github Pages에 배포하기 위한 모듈
+
+npm install -g gh-pages
+
+### package.json
+
+"scripts": {
+"build": "vite build",
+"predeploy": "npm run build",
+"deploy": "gh-pages -d dist"
+}
