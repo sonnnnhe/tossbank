@@ -55,3 +55,5 @@ npm install -g gh-pages
 "predeploy": "npm run build",
 "deploy": "gh-pages -d dist"
 }
+
+npm run deploy
