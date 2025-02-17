@@ -27,3 +27,19 @@ mini-blog-app 프로젝트
 ├── package.json
 ├── data.json
 ├── main.jsx
+
+### 프로덕션 배포하기
+
+npm run build
+
+빌드된 파일 실행
+npm install -g serve
+serve -s dist
+
+<!-- http://localhost:3000 -->
+
+웹서버(WAS) 필요
+
+- 깃허브 Pages
+- Vercel
+- AWS EC2 or 라이트세일(월정액)
