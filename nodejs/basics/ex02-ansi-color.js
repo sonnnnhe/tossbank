@@ -24,3 +24,6 @@ function hello(name) {
 }
 
 hello('강감찬')
+
+//4. 모듈 설치 삭제
+// npm uninstall ansi-colors
