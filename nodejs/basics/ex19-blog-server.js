@@ -96,6 +96,21 @@ app.delete('/posts/:id', async (req, res) => {
   }
 })
 // 댓글 추가
+app.post('/posts/:id/comments', async (req, res) => {
+  try {
+    const { content } = req.body
+    const post = await Post.findById(req.params.id)
+    if (!post) {
+      res.status(404).json({ message: 'Post Not Found' })
+    }
+
+    post.comments.push({ content })
+    await post.save() // 저장
+    res.json(post) // 응답
+  } catch (err) {
+    res.status(500).json({ errer: err.message })
+  }
+})
 
 // 서버 실행
 app.listen(PORT, () => {
