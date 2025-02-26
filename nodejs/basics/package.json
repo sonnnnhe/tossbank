@@ -18,6 +18,7 @@
     "express-session": "^1.18.1",
     "jsonwebtoken": "^9.0.2",
     "mongo": "^0.1.0",
-    "mongoose": "^8.10.1"
+    "mongoose": "^8.10.1",
+    "yfinance": "^0.0.6"
   }
 }
