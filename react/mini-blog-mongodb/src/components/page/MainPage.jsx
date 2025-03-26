@@ -26,7 +26,8 @@ function MainPage() {
 
   //백엔드에서 게시글 목록 가져오기
   useEffect(() => {
-    fetch("http://localhost:5000/posts")
+    // fetch("http://localhost:5000/posts")
+    fetch("http://localhost:3030/posts")
       .then((res) => res.json()) //response의 body를 JS json객체로 변환
       .then((data) => setPosts(data))
       .catch((err) => console.error("Error fetching posts", err));
@@ -50,7 +51,8 @@ function MainPage() {
         <PostList
           posts={posts}
           onClickItem={(item) => {
-            navigate(`/post/${item._id}`); //몽고DB의 _id 사용함.
+            // navigate(`/post/${item._id}`); //몽고DB의 _id 사용함.
+            navigate(`/post/${item.id}`);
           }}
         ></PostList>
       </Container>

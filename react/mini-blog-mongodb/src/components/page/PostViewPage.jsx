@@ -60,14 +60,19 @@ function PostViewPage(props) {
 
   //백엔드에서 게시글 단건 조회하기
   useEffect(() => {
-    fetch(`http://localhost:5000/posts/${postId}`)
+    // fetch(`http://localhost:5000/posts/${postId}`)
+    fetch(`http://localhost:3030/posts/${postId}`)
       .then((res) => res.json())
       .then((data) => {
         if (data) {
-          setPost(data);
+          // setPost(data);
+          setPost(data[0]);
         } else {
           console.error("Post not found");
         }
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
       });
   }, [postId]);
 
@@ -75,14 +80,16 @@ function PostViewPage(props) {
   const handleAddComment = () => {
     if (!comment) return;
 
-    fetch(`http://localhost:5000/posts/${postId}/comments`, {
+    // fetch(`http://localhost:5000/posts/${postId}/comments`, {
+    fetch(`http://localhost:3030/posts/${postId}/comments`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ content: comment }),
     })
       .then((res) => res.json())
       .then((updatedPost) => {
-        setPost(updatedPost); //업데이트된 게시글 상태 반영
+        // setPost(updatedPost); //업데이트된 게시글 상태 반영
+        setPost(updatedPost[0]); //업데이트된 게시글 상태 반영
         setComment("");
       })
       .catch((err) => console.error("Error adding comment:", err));
@@ -90,7 +97,8 @@ function PostViewPage(props) {
 
   //게시글 삭제하기
   const handleDeletePost = () => {
-    fetch(`http://localhost:5000/posts/${postId}`, {
+    // fetch(`http://localhost:5000/posts/${postId}`, {
+    fetch(`http://localhost:3030/posts/${postId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -123,7 +131,8 @@ function PostViewPage(props) {
 
         {post.comments.length > 0 && <CommentLabel>댓글</CommentLabel>}
         {post.comments.map((comment) => (
-          <CommentContainer key={comment._id}>
+          // <CommentContainer key={comment._id}>
+          <CommentContainer key={comment.id}>
             <ContentText>{comment.content}</ContentText>
           </CommentContainer>
         ))}

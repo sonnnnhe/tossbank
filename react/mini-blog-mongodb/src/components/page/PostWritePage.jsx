@@ -37,9 +37,10 @@ function PostWritePage() {
     const newPost = {
       title,
       content,
-      comments: [], // 빈배열
+      // comments: [],
     };
-    fetch("http://localhost:5000/posts", {
+    // fetch("http://localhost:5000/posts", {
+    fetch("http://localhost:3030/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newPost), //stringify : JS객체를 json형태의 문자열로 변환
