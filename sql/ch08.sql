@@ -311,18 +311,3 @@ ALTER TABLE 평점관리 ADD FOREIGN KEY(영화번호)
 SHOW CREATE TABLE 평점관리;  -- foreign_key_symbol 알아낼 수 있음
 SELECT * FROM 영화;
 SELECT * FROM 평점관리;
-
-
-
-
-USE mydb;
-SELECT post.*,         
-	JSON_OBJECT(
-    	'id', comment.id,
-       	'content', comment.content
-  	)
-FROM post
-INNER JOIN comment
-ON post.id = comment.post_id
-WHERE post.id=${req.params.id}
-GROUP BY post.id;
