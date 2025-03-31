@@ -10,7 +10,7 @@ class HanaAccount {
 
     private static HanaAccount singleton;
 
-    public static HanaAccount getInstance() {
+    static HanaAccount getInstance() {
         if (singleton == null) {
             singleton = new HanaAccount();
         }
@@ -22,9 +22,8 @@ class HanaAccount {
     public void withdraw() {
         balance -= 100;
     }
-    public double calculate() {
+    public void calculate() {
         balance = balance * (1 + interestRate);
-        return balance;
     }
     public double getBalance() {
         return balance;
