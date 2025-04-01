@@ -1,3 +1,5 @@
+package pb1_10;
+
 public class pb02 {
     public static void main(String[] args) {
         int[] rotto = new int[6];

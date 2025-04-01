@@ -1,3 +1,5 @@
+package pb1_10;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
