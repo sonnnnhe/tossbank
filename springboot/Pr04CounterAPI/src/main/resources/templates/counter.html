@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter.html</title>
+</head>
+<body>
+<h2 id="count" th:text="|카운트 : ${count}|"></h2>
+<button id="plus" onclick="calc('plus')">더하기</button>
+<button id="minus" onclick="calc('minus')">빼기</button>
+
+<script>
+    function plus() {
+        calc("plus");
+    }
+
+    function minus() {
+        calc("minus");
+    }
+
+    function calc(operation) {
+        fetch("http://localhost:8080/api/" + operation)
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error("서버 에러");
+            }
+            return res.json();
+        })
+        .then((json) => {
+            let count = document.getElementById("count");
+            count.innerText = "카운트 : " + json.count;
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }
+</script>
+</body>
+</html>
