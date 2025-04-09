@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>counter.html</title>
+</head>
+<body>
+    <h2 th:text="|카운트 : ${count}|">카운트 : 0</h2>
+    <button onclick="plus()">더하기</button>
+    <button onclick="minus()">빼기</button>
+
+    <script>
+        function plus() {
+            window.location.href = "/plus";
+        }
+        function minus() {
+            window.location.href = "/minus";
+        }
+    </script>
+</body>
+</html>
