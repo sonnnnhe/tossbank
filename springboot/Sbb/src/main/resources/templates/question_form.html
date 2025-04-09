@@ -1,0 +1,33 @@
+<html layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<div layout:fragment="content" class="container">
+    <h5 class="my-3 border-bottom pb-2">질문등록</h5>
+    <!-- 저장하기 버튼으로 폼 전송 시 form태그의 method="post"에 의해 POST 방식으로 데이터 요청됨 -->
+    <!-- th:object => <form>의 입력 항목들이 QuestionForm과 연결된다는 점을 타임리프에게 알림 -->
+    <!--    th:object에 의해 GET 방식으로 URL 요청이 되더라도 QuestionForm 객체가 필요함!! -->
+    <form th:action="@{/question/create}" th:object="${questionForm}" method="post">
+        <!-- 오류 메세지 출력 코드 -->
+            <!-- 오류 메세지 템플릿 사용 X -->
+<!--           <div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">-->
+<!--            &lt;!&ndash; #fields.allErrors() : 오류 내용이 담겨 있음 &ndash;&gt;-->
+<!--            <div th:each="err : ${#fields.allErrors()}" th:text="${err}"></div>-->
+<!--        </div>-->
+
+        <!-- 오류 메세지 템플릿 사용 O -->
+        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+
+        <!-- 질문등록 페이지 -->
+        <div class="mb-3">
+            <label for="subject" class="form-label">제목</label>
+            <!-- name속성 대신 th:field 사용
+                => 해당 태그의 id, name, value 속성이 자동으로 생성
+                   & 타임 리프가 value 속성에 기존에 입력된 값을 채워 넣어 오류가 발생하더라도 기존값 유지 -->
+            <input type="text" th:field="*{subject}" id="subject" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">내용</label>
+            <textarea th:field="*{content}" id="content" class="form-control" rows="10"></textarea>
+        </div>
+        <input type="submit" value="저장하기" class="btn btn-primary my-2">
+    </form>
+</div>
+</html>
