@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calculate.html</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .calculator {
+        border: 2px solid black;
+        padding: 20px;
+        width: 300px;
+        box-sizing: border-box;
+    }
+
+    .title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .input-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .input-label {
+        width: 80px;
+    }
+
+    input {
+        flex-grow: 1;
+        background-color: #ddd;
+        height: 30px;
+        border: none;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .result-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .result-label {
+        width: 80px;
+    }
+
+    .result {
+        flex-grow: 1;
+        background-color: #666;
+        color: white;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .button {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 10px;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .blue-button {
+        background-color: #1a73e8;
+    }
+
+    .red-button {
+        background-color: #ea4335;
+    }
+  </style>
+</head>
+<body>
+<div class="calculator">
+  <div class="title">계산기 프로그램</div>
+
+  <form action="/calc" method="get">
+
+
+  </form>
+  <div class="input-group">
+    <div class="input-label">숫자 1</div>
+    <input type="number" name="num1">
+  </div>
+
+  <div class="input-group">
+    <div class="input-label">숫자 2</div>
+    <input type="number" name="num2">
+  </div>
+
+  <div class="result-group">
+    <div class="result-label">연산 결과</div>
+    <input class="result" type="number" id="result" disabled></input>
+  </div>
+
+  <button type="button" id="add" class="button blue-button">덧셈</button>
+  <button type="button" id="sub" class="button blue-button">뺄셈</button>
+  <button type="button" id="mul" class="button blue-button">곱셈</button>
+  <button type="button" id="div" class="button blue-button">나눗셈</button>
+  <button type="button" id="del" class="button red-button">지우기</button>
+</div>
+
+<script>
+
+</script>
+</body>
+</html>
