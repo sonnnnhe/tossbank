@@ -1,5 +1,7 @@
 package com.study.sbb.question;
 
+import org.springframework.data.domain.Page;  // 페이징을 위한 클래스
+import org.springframework.data.domain.Pageable;  // 페이징을 처리하는 인터페이스
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -16,4 +18,5 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
     Question findBySubject(String subject);  // where문 조건으로 subject 포함
     Question findBySubjectAndContent(String subject, String content); // where문에 and 연산자로 subject, content열 조회
     List<Question> findBySubjectLike(String subject);
+    Page<Question> findAll(Pageable pageable);
 }
