@@ -1,5 +1,7 @@
 package com.study.springboot.dto;
 
+import com.study.springboot.entity.Article;
+
 // ArticleDTO
 public class ArticleForm {
     private String title;  // 제목
@@ -19,5 +21,10 @@ public class ArticleForm {
                 "title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 '}';
+    }
+
+    // Entity로 변환하는 함수
+    public Article toEntity() {
+        return new Article(null, title, content);
     }
 }
