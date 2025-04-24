@@ -8,11 +8,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class ArticleForm {
+    private Long id;  // id
     private String title;  // 제목
     private String content;  // 내용
 
     // Entity로 변환하는 함수
     public Article toEntity() {
-        return new Article(null, title, content);
+        return new Article(id, title, content);
     }
 }
