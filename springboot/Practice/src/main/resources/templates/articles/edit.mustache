@@ -1,0 +1,21 @@
+{{>layouts/header}}
+
+<form class="container" action="/articles/update" method="post">
+    <input name="id" type="hidden" value="{{article.id}}">
+    <div class="mb-3">
+        <label class="form-label">제목</label>
+        <input class="form-control" type="text" name="title" value="{{article.title}}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">내용</label>
+        <textarea class="form-control" rows="3" name="content">{{article.content}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/articles/{{article.id}}">Back</a>
+</form>
+
+<!-- article.~가 반복되는 것이 싫다면
+     #article, /article을 통해 사용 범위를 지정한 후
+     title, content, id로 써도 됨 -->
+
+{{>layouts/footer}}
